@@ -1,22 +1,36 @@
-# MySQL 8.0技术手册
+# MySQL 8.0参考手册
 
 <center>
     <strong>摘要</strong>
 </center>
 <br/>
 
-这是MySQL技术手册，它记录了MySQL8.0到8.0.34版本以及基于NDB 8.0版本的NDB Cluster发布版本8.0.34-ndb-8.0.34。它可能包括尚未发布的MySQL版本的功能文档。关于已发布的版本信息，请参阅[MySQL 8.0 Release Notes](https://dev.mysql.com/doc/relnotes/mysql/8.0/en/)
+这是MySQL技术手册，它记录了MySQL8.0到8.0.34版本以及基于NDB 8.0版本的NDB Cluster发布版本8.0.34-ndb-8.0.34。它可能包括尚未发布的MySQL版本的功能文档。关于已发布的版本信息，请参阅[MySQL 8.0 发行说明](https://dev.mysql.com/doc/relnotes/mysql/8.0/en/)
 
 MySQL 8.0功能特性。本手册描述了并非所有MySQL 8.0版本都包含的功能；这些功能可能不包括在您所许可使用的MySQL 8.0版本中。如果您对您所使用的MySQL 8.0版本的功能有任何疑问，请参考您的MySQL 8.0许可协议或联系您的Oracle销售代表。
 
-要查看每个版本更改的详细信息，请参阅[MySQL 8.0 Release Notes](https://dev.mysql.com/doc/relnotes/mysql/8.0/en/)
+要查看每个版本更改的详细信息，请参阅[MySQL 8.0 发行说明](https://dev.mysql.com/doc/relnotes/mysql/8.0/en/)
 
-TODO
-有关法律信息，包括许可信息，请参阅[Preface and Legal Notices]()
+有关法律信息，包括许可信息，请参阅[前言和法律声明](#前言和法律声明)
 
 如果需要使用MySQL的帮助，请访问MySQL论坛，在那里您可以与其他MySQL用户讨论您的问题。
 
-TODO
 文档生成时间：2023-04-04（修订版本：75301）
 
-# 前言和法律声明
+## <span id="PrefaceAndLegalNotices">前言和法律声明</span>
+本手册为MySQL 8.0数据库参考手册，覆盖了8.0至8.0.32版本的内容。本文档通过发布编号（8.*x*）记录了MySQL8.0次要版本间的差异。有关许可信息，请参阅[法律声明](#法律声明)。
+
+因为 MySQL 8.0 与以前版本之间有许多功能和其他差异，本手册不适用于旧版本的MySQL软件。如果您正在使用较早版本的MySQL软件，请参阅相应的手册。比如，[MySQL 5.7参考手册](#https://dev.mysql.com/doc/refman/5.7/en/)涵盖了5.7系列的MySQL软件版本。
+
+许可信息——MySQL 8.0。该产品可能包含在许可下使用的第三方软件，如果您正在使用MySQL 8.0的商业版，请参阅[MySQL 8.0商业版许可信息用户手册](https://downloads.mysql.com/docs/licenses/mysqld-8.0-com-en.pdf)以获取许可信息，包括与可能包含在此商业版中的第三方软件相关的许可信息。如果您正在使用MySQL 8.0社区版，请参阅[MySQL 8.0社区版许可信息用户手册](https://downloads.mysql.com/docs/licenses/mysqld-8.0-gpl-en.pdf)以获取许可信息，包括与可能包含在此社区版中的第三方软件相关的许可信息。
+
+许可信息——MySQL NDB Cluster 8.0。如果您正在使用MySQL NDB Cluster 8.0的商业版，请参阅[MySQL NDB Cluster 8.0商业版许可信用用户手册](https://downloads.mysql.com/docs/licenses/cluster-8.0-com-en.pdf)以获取许可信息，包括与可能包含在此商业版中的第三方软件相关的许可信息。如果您正在使用MySQL NDB Cluster 8.0的社区版，请参阅[MySQL NDB Cluster 8.0社区版许可信息用户手册](https://downloads.mysql.com/docs/licenses/cluster-8.0-gpl-en.pdf)以获取许可信息，包括与可能包含在此社区版中的第三方软件相关的许可信息。
+
+
+## <span id="LegalNotices">法律声明</span>
+Copyright © 1997, 2023, Oracle and/or its affiliates.
+本软件及相关文档是根据许可协议提供的，其中包含使用和披露的限制，并受到知识产权法的保护。除非根据您的许可协议明确允许或法律允许，否则您不得以任何形式或任何方式使用、复制、复印、翻译、广播、修改、许可、传输、分发、展示、执行、发布或显示任何部分。未经许可，禁止对本软件进行反向工程、反汇编或反编译，除非法律要求进行互操作性。
+本信息如有更改，恕不另行通知，且不保证完全没有错误。如果您发现任何错误，请以书面形式告知我们。
+如果这是交付给美国政府或代表美国政府授权的任何人的软件或相关文档，则适用以下通知：
+美国政府最终用户：Oracle程序（包括任何操作系统，集成软件，任何嵌入式程序，安装或激活在交付硬件上的任何程序以及这些程序的修改）和Oracle计算机文档或其他Oracle数据交付给或被美国政府最终用户访问是根据适用的联邦采购条例和机构特定补充条例的“商业计算机软件”或“商业计算机软件文档”。因此，对于 i) Oracle程序（包括任何操作系统、集成软件、嵌入、安装或激活在交付硬件上的任何程序以及这些程序的修改）、ii) Oracle计算机文档和/或 iii) 其他Oracle数据的使用、复制、复印、发布、显示、披露、修改、准备衍生作品和/或适应性，均受适用合同中包含的许可权利和限制的约束。美国政府使用Oracle云服务的条款由适用于该服务的合同定义。未授予美国政府其他权利。
+本软件或硬件是为各种信息管理应用程序的一般使用而开发的。它未被开发或旨在用于任何本质上危险的应用程序，包括可能造成个人受伤风险的应用程序。如果您在危险的应用程序中使用此软件或硬件，那么您应该负责采取所有适当的故障转移、备份、冗余和其他措施，以确保其安全使用。Oracle公司及其关联公司不对在危险的应用程序中使用此软件或硬件所造成的任何损害负责。
